@@ -1,0 +1,22 @@
+{
+  "name": "syncBarrier",
+  "version": "0.0.1",
+  "description": " Create a synchronisation barrier that waits for several async function calls to complete before running another function",
+  "main": "syncBarrier.js",
+  "scripts": {
+    "test": "node syncBarrier.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FractalJim/syncBarrier"
+  },
+  "keywords": [
+    "synchronization",
+    "barrier"
+  ],
+  "author": "James Matheson",
+  "license": "Apache 2",
+  "bugs": {
+    "url": "https://github.com/FractalJim/syncBarrier/issues"
+  }
+}
