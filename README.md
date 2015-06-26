@@ -13,33 +13,34 @@ There are three steps to using syncBarrier :
 This example (taken from the test code) use two barriers.  It will print the output from the barrier2 functions followed by the output
 from the barrier1  functions (as the functions used with barrier2 are actually synchronus, so get executed immediately).
 Notice that  the final argument to the test functions is a callback.  
+```JavaScript
+//Should see output of inline functiojn calls (barrier2) then Asycnh calls (barrier1) and complete notifications
+function test ()
+{
+    //Asynch function call
+        var barrier1 = new Barrier(function(){console.log("Complete 1")})
+        barrier1.registerFunction(testFunc,4);
+        barrier1.registerFunction(testFunc,6);
+        barrier1.startWaitComplete();
+             
+        //Inline function calls
+        var barrier2 = new Barrier(function(){console.log("Complete 2")})
+        barrier2.registerFunction(testFuncBody,7);
+        barrier2.registerFunction(testFuncBody,9);
+        barrier2.startWaitComplete();
+}
 
-        //Should see output of inline functiojn calls (barrier2) then Asycnh calls (barrier1) and complete notifications
-        function test ()
+function testFunc(num,end)
+{
+        setTimeout(testFuncBody,10,num,end);
+}
+
+function testFuncBody(num,end)
+{
+        for (var i=0;i<num;i++)
         {
-            //Asynch function call
-             var barrier1 = new Barrier(function(){console.log("Complete 1")})
-             barrier1.registerFunction(testFunc,4);
-             barrier1.registerFunction(testFunc,6);
-             barrier1.startWaitComplete();
-             //Inline function calls
-             var barrier2 = new Barrier(function(){console.log("Complete 2")})
-             barrier2.registerFunction(testFuncBody,7);
-             barrier2.registerFunction(testFuncBody,9);
-             barrier2.startWaitComplete();
+             console.log(i +"/" + num);
         }
-
-         function testFunc(num,end)
-         {
-             setTimeout(testFuncBody,10,num,end);
-
-         }
-
-         function testFuncBody(num,end)
-         {
-             for (var i=0;i<num;i++)
-               {
-                 console.log(i +"/" + num);
-               }
-              end();
-         }
+        end();
+}
+```
