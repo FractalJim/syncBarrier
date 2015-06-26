@@ -17,7 +17,7 @@ Notice that  the final argument to the test functions is a callback.
 //Should see output of inline functiojn calls (barrier2) then Asycnh calls (barrier1) and complete notifications
 function test ()
 {
-    //Asynch function call
+        //Asynch function call
         var barrier1 = new Barrier(function(){console.log("Complete 1")})
         barrier1.registerFunction(testFunc,4);
         barrier1.registerFunction(testFunc,6);
