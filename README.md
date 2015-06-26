@@ -34,4 +34,17 @@ function test ()
         barrier2.startWaitComplete();
 }
 
+function testFunc(num,end)
+{
+        setTimeout(testFuncBody,10,num,end);
+}
+
+function testFuncBody(num,end)
+{
+        for (var i=0;i<num;i++)
+        {
+             console.log(i +"/" + num);
+        }
+        end();
+}
 ```
