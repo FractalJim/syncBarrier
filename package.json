@@ -1,5 +1,5 @@
 {
-  "name": "syncBarrier",
+  "name": "syncbarrier",
   "version": "0.0.1",
   "description": " Create a synchronisation barrier that waits for several async function calls to complete before running another function",
   "main": "syncBarrier.js",
