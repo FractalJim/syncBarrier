@@ -27,16 +27,16 @@ if (require.main === module)
     module.exports.Barrier = Barrier;
 }
 
-//Should see output of inline functiojn calls (barrier2) then Asycnh calls (barrier1) and complete notifications
+//Should see output of inline functiojn calls (barrier2) then Asycnh calls (barrier1) and pass notifications
 function test ()
 {
     //Asynch function call
-     var barrier = new Barrier(function(){console.log("Complete 1")})
+     var barrier = new Barrier(function(){console.log("Passed 1")})
      barrier.registerFunction(testFunc,4);
      barrier.registerFunction(testFunc,6);
      barrier.startWaitComplete();
      //Inline function calls
-     var barrier2 = new Barrier(function(){console.log("Complete 2")})
+     var barrier2 = new Barrier(function(){console.log("Passed 2")})
      barrier2.registerFunction(testFuncBody,7);
      barrier2.registerFunction(testFuncBody,9);
      barrier2.startWaitComplete();
