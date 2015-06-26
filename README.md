@@ -2,8 +2,11 @@
 Node module for creating a synchronisation barrier that waits for several async function calls to complete before running another function.
 
 There are three steps to using syncBarrier :
+
 1. Create a new barrier object and pass it the function you want to run on completion (the onComplete function) and any arguments that function needs.
+
 2. For each function you want to finish running before the onComplete function is called  call "registerFunction" on the barrier.  A completion callback must be the final argument in the argument list of the function you are registering. You should not pass this callback yourself as the barrier will pass a callback of its own. The function you register will be called with the arguments you pass "registerFunction" as soon as you register it.
+
 3. Once you have registered all the functions you want to wait for, call "startWaitComplete" on the barrier object. The onComplete function will then run as soon as all the registered functions have finished running.
 
 ## Example
