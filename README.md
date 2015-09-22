@@ -31,13 +31,13 @@ test()
 
 function test ()
 {
-        var barrier = new Barrier(testComplete,null,"Barrier 1 Complete",testArray,testIndex);
+        var barrier = new syncBarrier.Barrier(console.log,null,"Barrier 1 Complete");
         barrier.registerFunction(testFunction,null,1);
         barrier.registerFunction(testFunction,null,2);
         barrier.startWaitComplete();
 
         //Inline function calls
-        var barrier2 = new Barrier(console.log,null,"Barrier 2 Complete");
+        var barrier2 = new syncBarrier.Barrier(console.log,null,"Barrier 2 Complete");
         barrier2.registerFunction(testFunctionSync,null,3);
         barrier2.registerFunction(testFunctionSync,null,4);
         barrier2.startWaitComplete();

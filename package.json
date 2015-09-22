@@ -1,6 +1,6 @@
 {
   "name": "syncbarrier",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": " Create a synchronisation barrier that waits for several async function calls to complete before running another function",
   "main": "syncBarrier.js",
   "scripts": {
